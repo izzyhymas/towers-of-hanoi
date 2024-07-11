@@ -1,0 +1,10 @@
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: end;
+  align-items: center;
+  height: 500px;
+  width: 1200px;
+  border-radius: 15px;
+  background-color: #555555;
+}
