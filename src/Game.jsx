@@ -19,7 +19,7 @@ function Game() {
 
   useEffect(() => {
     if (towerState.t3.length === discs.length) {
-      alert("YOU WIN!");
+      alert(`YOU WON USING ${moves} MOVES!`);
     }
   }, [towerState]);
 
