@@ -5,7 +5,9 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #00AA00;
+  background-image: url("src/assets/nether.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,15 +15,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "Minecraft";
+  src: url("./src/fonts/minecraft-ten-font/MinecraftTen-VGORe.ttf") format("truetype");
+}
+
 header {
+  font-family: "Minecraft", sans-serif;
   text-align: center;
-  padding: 10px 0;
   font-weight: 800;
-  font-size: x-large;
+  font-size: xx-large;
+  color: white;
 }
 
 footer {
+  font-family: "Minecraft", sans-serif;
   text-align: center;
   padding: 10px 0;
   font-weight: 800;
+  color: white;
 }

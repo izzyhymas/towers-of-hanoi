@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DndContext } from "@dnd-kit/core";
 import { toast } from "react-toastify";
 
@@ -9,12 +9,19 @@ import Tower from "./Tower.jsx";
 import styles from "./Game.module.css";
 
 function Game() {
-  const [, setParent] = useState(null);
+  const [parent, setParent] = useState(null);
+  const [moves, setMoves] = useState(0);
   const [towerState, setTowerState] = useState({
     t1: [...discs],
     t2: [],
     t3: [],
   });
+
+  useEffect(() => {
+    if (towerState.t3.length === discs.length) {
+      alert("YOU WIN!");
+    }
+  }, [towerState]);
 
   const notify = () =>
     toast("YOU CAN'T DO THAT!", {
@@ -27,6 +34,13 @@ function Game() {
       progress: undefined,
       theme: "dark",
     });
+
+  // WINNING FUNCTIONALITY #2
+  //const win = (t1, t2, t3) => {
+  //  if (t1.length === 0 && t2.length === 0 && t3.length === discs.length) {
+  //    alert("YOU WON!");
+  //  }
+  //};
 
   function handleDragEnd({ active, over }) {
     setParent(over ? over.id : null);
@@ -59,11 +73,15 @@ function Game() {
     else if (over.id === "t2") newT2.push(disc);
     else if (over.id === "t3") newT3.push(disc);
 
+    setMoves(prev => prev + 1);
+
     setTowerState({
       t1: newT1,
       t2: newT2,
       t3: newT3,
     });
+
+    //win(newT1, newT2, newT3);
   }
 
   return (
